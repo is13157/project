@@ -12,7 +12,7 @@
         text-decoration: none;
         @include transform_time(.5s);
         &:hover, :hover{
-            background: -webkit-linear-gradient( 131deg, $btn_bg 0%, $btn_bg 99%);
+            background: -webkit-linear-gradient( 131deg, #F0542C 0%, #F0542C 99%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
@@ -536,7 +536,6 @@
 
     p {
         margin-bottom: 30px;
-        font-family: $font2;
     }
 
     a {
@@ -603,7 +602,7 @@
         left: 10px;
         display: block;
         color: $white_color;
-        background-color: $btn_bg;
+        background-color: #F0542C;
         padding: 8px 15px;
         border-radius: 5px;
 
@@ -1103,7 +1102,7 @@
         background: $white_color;
         padding: 15px 15px 15px 20px;
         border-left: 2px solid;
-        font-family: $font2;
+
         @media(min-width: 768px) {
             padding: 25px 25px 25px 30px;
         }
@@ -1387,7 +1386,6 @@
         margin-bottom: 10px;
         color: #777777;
         font-size: 15px;
-        font-family: $font2;
     }
 
     .btn-reply {

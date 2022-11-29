@@ -13,9 +13,6 @@ $(window).on('scroll', function () {
 });
 
 
-
-
-
 $(document).ready(function(){
 
 // mobile_menu
@@ -33,134 +30,109 @@ if(menu.length){
   // });
 
 // review-active
-
-var slider = $('.slider_active');
-if(slider.length) {
-  slider.owlCarousel({
-    loop:true,
-    margin:0,
-  items:1,
-  autoplay:true,
-  navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
-    nav:true,
-  dots:false,
-  autoplayHoverPause: true,
-  autoplaySpeed: 800,
-    responsive:{
-        0:{
-            items:1,
-            nav:false,
-        },
-        767:{
-            items:1,
-            nav:false,
-        },
-        992:{
-            items:1,
-            nav:false
-        },
-        1200:{
-            items:1,
-            nav:false
-        },
-        1600:{
-            items:1,
-            nav:true
-        }
-    }
-  });
-}
-
-
-
-// review-active
-var testmonial = $('.testmonial_active');
-if(testmonial.length){
-  testmonial.owlCarousel({
+$('.slider_active').owlCarousel({
   loop:true,
   margin:0,
-  autoplay:true,
-  navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
-    nav:true,
-  dots:false,
-  autoplayHoverPause: true,
-  autoplaySpeed: 800,
-    responsive:{
-        0:{
-            items:1,
-            dots:false,
-            nav:false,
-        },
-        767:{
-            items:1,
-            dots:false,
-            nav:false,
-        },
-        992:{
-            items:1,
-            nav:true
-        },
-        1200:{
-            items:1,
-            nav:true
-        },
-        1500:{
-            items:1
-        }
-    }
-  });
-}
+items:1,
+autoplay:true,
+navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
+  nav:true,
+dots:false,
+autoplayHoverPause: true,
+autoplaySpeed: 800,
+animateOut: 'fadeOut',
+animateIn: 'fadeIn',
+  responsive:{
+      0:{
+          items:1,
+          nav:false,
+      },
+      767:{
+          items:1,
+          nav:false,
+      },
+      992:{
+          items:1
+      }
+  }
+});
+
+// about_active
+$('.about_active').owlCarousel({
+  loop:true,
+  margin:0,
+items:1,
+autoplay:true,
+navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
+  nav:true,
+dots:false,
+autoplayHoverPause: true,
+autoplaySpeed: 800,
+animateOut: 'fadeOut',
+animateIn: 'fadeIn',
+  responsive:{
+      0:{
+          items:1,
+          nav:false,
+      },
+      767:{
+          items:1,
+          nav:false,
+      },
+      992:{
+          items:1
+      }
+  }
+});
 
 // review-active
-var candidate = $('.candidate_active');
-if(candidate.length){
-  candidate.owlCarousel({
+$('.testmonial_active').owlCarousel({
   loop:true,
-  margin:30,
-  autoplay:true,
-  navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
+  margin:0,
+items:1,
+autoplay:true,
+navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
   nav:true,
-  dots:false,
-  autoplayHoverPause: true,
-  autoplaySpeed: 800,
-    responsive:{
-        0:{
-            items:1,
-            dots:false,
-            nav:false,
-        },
-        767:{
-            items:3,
-            dots:false,
-            nav:false,
-        },
-        992:{
-            items:4,
-            nav:true
-        },
-        1200:{
-            items:4,
-            nav:true
-        },
-        1500:{
-            items:4
-        }
-    }
-  });
-}
-
-
-
+dots:false,
+autoplayHoverPause: true,
+autoplaySpeed: 800,
+animateOut: 'fadeOut',
+animateIn: 'fadeIn',
+  responsive:{
+      0:{
+          items:1,
+          dots:false,
+          nav:false,
+      },
+      767:{
+          items:1,
+          dots:false,
+          nav:false,
+      },
+      992:{
+          items:1,
+          nav:false
+      },
+      1200:{
+          items:1,
+          nav:false
+      },
+      1500:{
+          items:1
+      }
+  }
+});
 
 // for filter
   // init Isotope
   var $grid = $('.grid').isotope({
     itemSelector: '.grid-item',
     percentPosition: true,
+
     masonry: {
       // use outer width of grid-sizer for columnWidth
-      columnWidth: 1
-    }
+      columnWidth: 1,
+    },
   });
 
   // filter items on button click
@@ -206,35 +178,93 @@ $('.popup-video').magnificPopup({
 	type: 'iframe'
 });
 
+
+  // scrollIt for smoth scroll
+  $.scrollIt({
+    upKey: 38,             // key code to navigate to the next section
+    downKey: 40,           // key code to navigate to the previous section
+    easing: 'linear',      // the easing function for animation
+    scrollTime: 600,       // how long (in ms) the animation takes
+    activeClass: 'active', // class given to the active nav element
+    onPageChange: null,    // function(pageIndex) that is called when page is changed
+    topOffset: 0           // offste (in px) for fixed top navigation
+  });
+
+  // scrollup bottom to top
+  $.scrollUp({
+    scrollName: 'scrollUp', // Element ID
+    topDistance: '4500', // Distance from top before showing element (px)
+    topSpeed: 300, // Speed back to top (ms)
+    animation: 'fade', // Fade, slide, none
+    animationInSpeed: 200, // Animation in speed (ms)
+    animationOutSpeed: 200, // Animation out speed (ms)
+    scrollText: '<i class="fa fa-angle-double-up"></i>', // Text for element
+    activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+  });
+
+
   // blog-page
 
   //brand-active
-  var brand = $('.brad_active');
-  if(brand.length){
-    brand.owlCarousel({
-    loop:true,
-    autoplay:true,
-    nav:false,
-    dots:false,
-    autoplayHoverPause: true,
-    autoplaySpeed: 800,
-      responsive:{
-          0:{
-              items:2,
-              nav:false
-          },
-          767:{
-              items:4
-          },
-          992:{
-              items:5
-          }
-      }
-    });
-  }
+$('.brand-active').owlCarousel({
+  loop:true,
+  margin:30,
+items:1,
+autoplay:true,
+  nav:false,
+dots:false,
+autoplayHoverPause: true,
+autoplaySpeed: 800,
+  responsive:{
+      0:{
+          items:1,
+          nav:false
 
+      },
+      767:{
+          items:4
+      },
+      992:{
+          items:7
+      }
+  }
+});
 
 // blog-dtails-page
+
+  //project-active
+$('.project-active').owlCarousel({
+  loop:true,
+  margin:30,
+items:1,
+// autoplay:true,
+navText:['<i class="Flaticon flaticon-left-arrow"></i>','<i class="Flaticon flaticon-right-arrow"></i>'],
+nav:true,
+dots:false,
+// autoplayHoverPause: true,
+// autoplaySpeed: 800,
+  responsive:{
+      0:{
+          items:1,
+          nav:false
+
+      },
+      767:{
+          items:1,
+          nav:false
+      },
+      992:{
+          items:2,
+          nav:false
+      },
+      1200:{
+          items:1,
+      },
+      1501:{
+          items:2,
+      }
+  }
+});
 
 if (document.getElementById('default-select')) {
   $('select').niceSelect();
@@ -294,8 +324,6 @@ $(document).ready(function() {
 	});
 });
 
-
-
 //------- Mailchimp js --------//  
 function mailChimp() {
   $('#mc_embed_signup').find('form').ajaxChimp();
@@ -319,20 +347,5 @@ mailChimp();
             $("#search_input_box").slideToggle();
             $("#search_input").focus();
         });
-        $(document).ready(function() {
-          $('select').niceSelect();
-        });
-
-
-      //   $('#datepicker').datepicker({
-      //     iconsLibrary: 'fontawesome',
-      //     icons: {
-      //      rightIcon: '<span class="fa fa-caret-down"></span>'
-      //  }
-      // });
-
-
-
-
 
 })(jQuery);	

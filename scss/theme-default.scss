@@ -1,15 +1,15 @@
 
 /* 1. Theme default css */
-@import 'varriable';
-@import 'mixins.scss';
-@import 'responsive';
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&display=swap');
 body {
-	font-family: $font2;
+	font-family: 'Raleway', sans-serif;
 	font-weight: normal;
     font-style: normal;
     
 }
 
+
+@import 'mixins.scss';
 .img {
 	max-width: 100%;
 	@include transition(.3s);
@@ -24,6 +24,7 @@ a:focus,
 	outline: none;
 }
 a:focus{
+	color: #fff;
 	text-decoration: none;
 }
 a:focus,
@@ -31,6 +32,7 @@ a:hover,
 .portfolio-cat a:hover,
 .footer -menu li a:hover {
 	text-decoration: none;
+	color: #1F1F1F;
 }
 a,
 button {
@@ -38,8 +40,8 @@ button {
 	outline: medium none;
 }
 h1,h2,h3,h4,h5{
-	font-family: $font1;
-	color: $heading-color;
+	font-family: 'Raleway', sans-serif;
+	color: #1F1F1F;
 }
 h1 a,
 h2 a,
@@ -59,11 +61,11 @@ li {
 }
 p {
 	font-size: 16px;
-	font-weight:400;
+	font-weight:300;
 	line-height: 28px;
-	color: #7A838B;
+	color: #4D4D4D;
 	margin-bottom: 13px;
-	font-family: $font2;
+	font-family: 'Raleway', sans-serif;
 }
 
 label {
@@ -152,7 +154,7 @@ h3{
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	opacity: .5;
+	opacity: .4;
 }
 
 .overlay2{
@@ -162,50 +164,13 @@ h3{
 .overlay2::before{
 	position: absolute;
 	content: "";
-	background-color: $heading-color;
+	background-color: #131313;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	opacity: 0.6;
-}
-
-.overlay_03{
-	position: relative;
-	z-index: 0;
-}
-.overlay_03::before{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	background: $heading-color;
-	opacity: .6;
-	content: '';
-	z-index: -1;
-}
-
-
-.bradcam_overlay{
-	position: relative;
-	z-index: 0;
-}
-.bradcam_overlay::before{
-	position: absolute;
-	content: "";
-	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#5db2ff+0,7db9e8+100&1+24,0+96 */
-background: -moz-linear-gradient(left,  rgba(93,178,255,1) 0%, rgba(101,180,249,1) 24%, rgba(124,185,233,0) 96%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left,  rgba(93,178,255,1) 0%,rgba(101,180,249,1) 24%,rgba(124,185,233,0) 96%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right,  rgba(93,178,255,1) 0%,rgba(101,180,249,1) 24%,rgba(124,185,233,0) 96%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5db2ff', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-	opacity: 1;
+	opacity: 0.2;
 }
 
 .section-padding{
@@ -220,8 +185,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5db2ff', end
 .owl-carousel {
 	.owl-nav div {
 		background: transparent;
-		height: 50px;
+		height: 54px;
 		left: 0px;
+		line-height: 54px;
 		// opacity: 0;
 		position: absolute;
 		text-align: center;
@@ -233,16 +199,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5db2ff', end
 		-o-transition: all 0.3s ease 0s;
 		transition: all 0.3s ease 0s;
 		// visibility: hidden;
-		width: 50px;
-		color: #707070;
-		background-color: transparent;
-		@include border-radius(50%);
-		left: 50px;
-		font-size: 15px;
-		line-height: 50px;
-		border: 1px solid #4D6174;
-		left: 150px;
+		width: 54px;
+		font-size: 25px;
 		color: #fff;
+		background-color: rgba(255, 255, 255,0.2);
+		border-radius: 50%;
+		left: 50px;
+		font-size: 18px;
+		line-height: 54px;
 	}
 	.owl-nav{
 		div{
@@ -250,18 +214,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5db2ff', end
 				// left: 86px;
 				// right: auto;
 				left: auto;
-				right: 150px;
+				right: 50px;
 				i{
-					position: relative;
-					right: 0;
+					// position: relative;
+					// right: 0;
 					// top: 1px;
 				}
 			}
 			&.owl-prev{
 				i{
-					position: relative;
+					// position: relative;
 					// right: 1px;
-					top: 0px;
+					// top: 0px;
 				}
 			}
 		}
@@ -273,8 +237,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5db2ff', end
 				visibility: visible;
 				&:hover{
 					color: #fff;
-					background: #FD8E5E;
-					border: 1px solid transparent ;
+					background: #009DFF;
 				}
 			}
 		}
@@ -285,23 +248,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5db2ff', end
 	margin-bottom: 20px;
 }
 
-.mb-55{
-	margin-bottom: 55px;
-}
-.mb-40{
-	margin-bottom: 40px;
-}
-.mb-20{
-	margin-bottom: 20px;
-}
 
-
-.mb-60{
-	margin-bottom: 50px !important;
-	@media #{$tablet_device} {
-		margin-bottom: 30px !important;
-	}
-	@media #{$mobile_device} {
-		margin-bottom: 20px !important;
-	}
-}
+  
