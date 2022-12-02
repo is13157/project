@@ -1,3 +1,7 @@
+<?php
+$db = require 'db.php';
+$items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -42,7 +46,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a  href="index.html">home</a></li>
-                                        <li><a class="active" href="Menu.html">Menu</a></li>
+                                        <li><a class="active" href="Menu.php">Menu</a></li>
                                         <li><a href="about.html">About</a></li>
                                         <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
@@ -126,132 +130,23 @@
                 </div>
             </div>
             <div class="row">
+                <? foreach ($items as $item):?>
                 <div class="col-xl-6 col-md-6 col-lg-6">
                     <div class="single_delicious d-flex align-items-center">
                         <div class="thumb">
                             <img src="img/burger/1.png" alt="">
                         </div>
                         <div class="info">
-                            <h3>Beefy Burgers</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
+                            <h3><?= $item['name']?></h3>
+                            <p><?= $item['discription']?></p>
+                            <span><?= $item['price']?></span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/2.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Burger Boys</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/3.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Burger Bizz</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/4.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Crackles Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/5.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Bull Burgers</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/6.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Rocket Burgers</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/7.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Smokin Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/8.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Delish Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/4.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Crackles Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/5.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Bull Burgers</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-
+                <?php endforeach;?>
                 </div>
             </div>
         </div>
-    </div>
     <!-- best_burgers_area_end  -->
 
     <!-- features_room_startt -->
