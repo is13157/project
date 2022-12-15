@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 02 2022 г., 08:15
+-- Время создания: Дек 15 2022 г., 07:41
 -- Версия сервера: 5.6.51
 -- Версия PHP: 8.0.18
 
@@ -24,6 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `contact`
+--
+
+INSERT INTO `contact` (`id`, `text`, `name`, `email`, `subject`) VALUES
+(1, 'erteterswterttewtsrtysrtrtyrtyrtyretyrey', 'tetewtwetewrter', 'erdftsert@mail.ru', 'You have a message from your Bitmap Photography.'),
+(2, 'rtaertehuiweuigsaifhweufhsufhwdufhzsufhwadufh', 'oahsgyuvsuahetu', 'kjhaseweay@yandex.com', 'You have a message from your Bitmap Photography.'),
+(3, 'врпаорвпарвыпаропываорыпраопвроапыопаыв', 'вовка', 'vovka@gmail.com', 'hgfjhgfkdjhgkjfhgdkjfhgjd');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `menu`
 --
 
@@ -31,30 +54,35 @@ CREATE TABLE `menu` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `discription` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` int(11) NOT NULL
+  `price` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `menu`
 --
 
-INSERT INTO `menu` (`id`, `name`, `discription`, `price`) VALUES
-(1, 'Beefy Burgers', 'Great way to make your buisness appear trust and relevant', 5),
-(2, 'Burger Boys', 'Great way to make your buisness appear trust and relevant', 5),
-(3, 'Burger Bizz', 'Great way to make your buisness appear trust and relevant', 5),
-(4, 'Crackles Burger', 'Great way to make your buisness appear trust and relevant', 5),
-(5, 'Bull Burger', 'Great way to make your buisness appear trust and relevant', 5),
-(6, 'Rocket Burger', 'Great way to make your buisness appear trust and relevant', 5),
-(7, 'Smokin Burger', 'Great way to make your buisness appear trust and relevant', 5),
-(8, 'Delish Burger', 'Great way to make your buisness appear trust and relevant', 5),
-(9, 'Crackles Burger', 'Great way to make your buisness appear trust and relevant', 5),
-(10, 'Bull Burger', 'Great way to make your buisness appear trust and relevant', 5),
-(11, 'The Burger President', 'Great way to make your buisness appear trust and relevant', 20),
-(12, 'The Burger President', 'Great way to make your buisness appear trust and relevant', 20);
+INSERT INTO `menu` (`id`, `name`, `discription`, `price`, `image`) VALUES
+(1, 'Мясные бургеры', 'Отличный способ сделать ваш бизнес надежным и актуальным', '$5', './img/burger/1.png'),
+(2, 'Бургерные мальчики', 'Отличный способ сделать так, чтобы ваш бизнес казался надежным и актуальным', '$5', './img/burger/2.png'),
+(3, 'Бургер Бизз', 'Отличный способ сделать так, чтобы ваш бизнес казался надежным и актуальным', '$5', './img/burger/3.png'),
+(4, 'Бургер с хрустящими огурцами', 'Отличный способ сделать так, чтобы ваш бизнес казался надежным и актуальным', '$5', './img/burger/4.png'),
+(5, 'Булл Бургер', 'Отличный способ сделать так, чтобы ваш бизнес казался надежным и актуальным', '$5', './img/burger/5.png'),
+(6, 'Ракетный бургер', 'Отличный способ сделать так, чтобы ваш бизнес казался надежным и актуальным', '$5', './img/burger/6.png'),
+(7, 'Дымящийся бургер', 'Отличный способ сделать так, чтобы ваш бизнес казался надежным и актуальным', '$5', './img/burger/7.png'),
+(8, 'Восхитительный бургер', 'Отличный способ сделать так, чтобы ваш бизнес казался надежным и актуальным', '$5', './img/burger/8.png'),
+(9, 'Бургер с хрустящими огурцами', 'Отличный способ сделать так, чтобы ваш бизнес казался надежным и актуальным', '$5', './img/burger/4.png'),
+(10, 'Булл Бургер', 'Отличный способ сделать так, чтобы ваш бизнес казался надежным и актуальным', '$5', './img/burger/5.png');
 
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `menu`
@@ -67,10 +95,16 @@ ALTER TABLE `menu`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT для таблицы `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

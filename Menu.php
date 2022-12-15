@@ -1,6 +1,6 @@
 <?php
 $db = require 'db.php';
-$items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAll(PDO::FETCH_ASSOC);
+$items=$db->query("SELECT name, discription, price, image FROM menu")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -8,7 +8,7 @@ $items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAl
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Burger</title>
+    <title>Бургер</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -114,7 +114,7 @@ $items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAl
 
     <!-- bradcam_area_start -->
     <div class="bradcam_area breadcam_bg overlay">
-        <h3>Menu</h3>
+        <h3>Меню</h3>
     </div>
     <!-- bradcam_area_end -->
 
@@ -124,8 +124,8 @@ $items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAl
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section_title text-center mb-80">
-                        <span>Burger Menu</span>
-                        <h3>Best Ever Burgers</h3>
+                        <span>Меню бургеров</span>
+                        <h3>Лучшие бургеры на свете</h3>
                     </div>
                 </div>
             </div>
@@ -134,7 +134,7 @@ $items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAl
                 <div class="col-xl-6 col-md-6 col-lg-6">
                     <div class="single_delicious d-flex align-items-center">
                         <div class="thumb">
-                            <img src="img/burger/1.png" alt="">
+                            <img src="<?= $item['image']?>" alt="">
                         </div>
                         <div class="info">
                             <h3><?= $item['name']?></h3>
@@ -158,9 +158,9 @@ $items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAl
                         <div class="room_heading d-flex justify-content-between align-items-center">
                             <div class="room_heading_inner">
                                 <span>$20</span>
-                                <h3>The Burger President</h3>
-                                <p>Great way to make your business appear trust <br> and relevant.</p>
-                                <a href="#" class="boxed-btn3">Order Now</a>
+                                <h3>Бургер-президент</h3>
+                                <p>Отличный способ придать вашему бизнесу видимость доверия <br> и уместно.</p>
+                                <a href="#" class="boxed-btn3">Заказывайте сейчас</a>
                             </div>
                             
                         </div>
@@ -172,9 +172,9 @@ $items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAl
                         <div class="room_heading d-flex justify-content-between align-items-center">
                             <div class="room_heading_inner">
                                 <span>$20</span>
-                                <h3>The Burger President</h3>
-                                <p>Great way to make your business appear trust <br> and relevant.</p>
-                                <a href="#" class="boxed-btn3">Order Now</a>
+                                <h3>Бургер-президент</h3>
+                                <p>Отличный способ придать вашему бизнесу видимость доверия <br> и уместно.</p>
+                                <a href="#" class="boxed-btn3">Заказывайте сейчас</a>
                             </div>
                         </div>
                     </div>
@@ -189,8 +189,8 @@ $items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAl
             <div class="row">
                 <div class="col-xl-12">
                     <div class="section_title mb-60 text-center">
-                        <span>Testimonials</span>
-                        <h3>Happy Customers</h3>
+                        <span>Рекомендации</span>
+                        <h3>Счастливые клиенты</h3>
                     </div>
                 </div>
             </div>
@@ -201,10 +201,10 @@ $items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAl
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <div class="single_testmonial text-center">
-                                        <p>“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor
-                                            sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec
-                                            sed
-                                            neque.</p>
+                                        <p>“Пожертвуйте Кони-Айленду в результате матраса. Хранитель портрета
+                                            внимательно. Трудно понять боль от сапфирового ультразвука
+                                            но
+                                            и не.</p>
                                         <div class="testmonial_author">
                                             <div class="thumb">
                                                 <img src="img/testmonial/1.png" alt="">
@@ -226,10 +226,10 @@ $items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAl
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <div class="single_testmonial text-center">
-                                        <p>“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor
-                                            sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec
-                                            sed
-                                            neque.</p>
+                                        <p>“Пожертвуйте Кони-Айленду в результате матраса. Хранитель портрета
+                                            внимательно. Трудно понять боль от сапфирового ультразвука
+                                            но
+                                            и не.</p>
                                         <div class="testmonial_author">
                                             <div class="thumb">
                                                 <img src="img/testmonial/2.png" alt="">
@@ -251,10 +251,10 @@ $items=$db->querry("SELECT 'name', 'discription', 'price' FROM 'menu'")->fetchAl
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <div class="single_testmonial text-center">
-                                        <p>“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor
-                                            sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec
-                                            sed
-                                            neque.</p>
+                                        <p>“Пожертвуйте Кони-Айленду в результате матраса. Хранитель портрета
+                                            внимательно. Трудно понять боль от сапфирового ультразвука
+                                            но
+                                            и не.</p>
                                         <div class="testmonial_author">
                                             <div class="thumb">
                                                 <img src="img/testmonial/3.png" alt="">
