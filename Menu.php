@@ -45,7 +45,7 @@ $items=$db->query("SELECT name, discription, price, image FROM menu")->fetchAll(
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a  href="index.html">home</a></li>
+                                        <li><a  href="index.php">home</a></li>
                                         <li><a class="active" href="Menu.php">Menu</a></li>
                                         <li><a href="about.html">About</a></li>
                                         <li><a href="#">blog <i class="ti-angle-down"></i></a>
@@ -66,7 +66,7 @@ $items=$db->query("SELECT name, discription, price, image FROM menu")->fetchAll(
                         </div>
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <img src="img/logo.png" alt="">
                                 </a>
                             </div>

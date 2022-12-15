@@ -1,3 +1,9 @@
+<?php
+$db = require 'db.php';
+$items=$db->query("SELECT name, discription, price, image FROM menu LIMIT 8")->fetchAll(PDO::FETCH_ASSOC);
+$customers=$db->query("SELECT name, text, image FROM happy_customers")->fetchAll(PDO::FETCH_ASSOC);
+$backgrounds=$db->query("SELECT image FROM background")->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -111,8 +117,8 @@
     <!-- slider_area_start -->
     <div class="slider_area">
         <div class="slider_active owl-carousel">
-
-            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
+            <? foreach ($backgrounds as $background):?>
+            <div style="background-image:url('<?= $background['image']?>')" class="single_slider  d-flex align-items-center overlay">
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
                         <div class="col-xl-9 col-md-9 col-md-12">
@@ -128,22 +134,7 @@
                     </div>
                 </div>
             </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_2 overlay">
-                <div class="container">
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-xl-9 col-md-9 col-md-12">
-                            <div class="slider_text text-center">
-                                <div class="deal_text">
-                                    <span>Big Deal</span>
-                                </div>
-                                <h3>Burger <br>
-                                    Bachelor</h3>
-                                <h4>Maxican</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?endforeach;?>
         </div>
     </div>
     <!-- slider_area_end -->
@@ -159,109 +150,25 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/1.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Beefy Burgers</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/2.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Burger Boys</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
+                <? foreach ($items as $item):?>
+                    <div class="col-xl-6 col-md-6 col-lg-6">
+                        <div class="single_delicious d-flex align-items-center">
+                            <div class="thumb">
+                                <img src="<?= $item['image']?>" alt="">
+                            </div>
+                            <div class="info">
+                                <h3><?= $item['name']?></h3>
+                                <p><?= $item['discription']?></p>
+                                <span><?= $item['price']?></span>
+                            </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/3.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Burger Bizz</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/4.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Crackles Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/5.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Bull Burgers</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/6.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Rocket Burgers</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/7.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Smokin Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/8.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Delish Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach;?>
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="iteam_links">
-                        <a class="boxed-btn5" href="Menu.php">More Items</a>
+                        <a class="boxed-btn5" href="Menu.php">Больше товаров</a>
                     </div>
                 </div>
             </div>
@@ -276,11 +183,10 @@
                         <div class="room_heading d-flex justify-content-between align-items-center">
                             <div class="room_heading_inner">
                                 <span>$20</span>
-                                <h3>The Burger President</h3>
-                                <p>Great way to make your business appear trust <br> and relevant.</p>
-                                <a href="#" class="boxed-btn3">Order Now</a>
+                                <h3>Бургер президент</h3>
+                                <p>Отличный способ сделать так, чтобы ваш бизнес вызывал доверие<br> и актуально.</p>
+                                <a href="#" class="boxed-btn3">Заказать сейчас</a>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -290,9 +196,9 @@
                         <div class="room_heading d-flex justify-content-between align-items-center">
                             <div class="room_heading_inner">
                                 <span>$20</span>
-                                <h3>The Burger President</h3>
-                                <p>Great way to make your business appear trust <br> and relevant.</p>
-                                <a href="#" class="boxed-btn3">Order Now</a>
+                                <h3>Бургер президент</h3>
+                                <p>Отличный способ сделать так, чтобы ваш бизнес вызывал доверие <br> и актуально.</p>
+                                <a href="#" class="boxed-btn3">Заказать сейчас</a>
                             </div>
                         </div>
                     </div>
@@ -317,11 +223,11 @@
                     <div class="col-xl-5 col-lg-5 offset-lg-1 col-md-6">
                         <div class="about_info">
                             <div class="section_title mb-20px">
-                                <span>About Us</span>
-                                <h3>Best Burger <br>
-                                        in your City</h3>
+                                <span>О нас</span>
+                                <h3>Лучший бургер<br>
+                                        в твоём городе</h3>
                             </div>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate</p>
+                            <p>Доступно множество вариаций отрывков из Lorem Ipsum, но большинство из них претерпели изменения в той или иной форме, путем добавления юмора или случайных слов, которые даже немного не кажутся правдоподобными. Если вы собираетесь использовать отрывок из Lorem Ipsum, вы должны быть уверены, что в середине текста нет ничего смущающего. Все генераторы Lorem Ipsum в Интернете имеют тенденцию повторять заранее заданные фрагменты по мере необходимости, что делает его первым настоящим генератором в Интернете. Он использует словарь из более чем 200 латинских слов в сочетании с несколькими типовыми структурами предложений для создания</p>
                             <div class="img_thumb">
                                 <img src="img/jessica-signature.png" alt="">
                             </div>
@@ -334,9 +240,9 @@
     <!-- video_area_start -->
     <div class="video_area video_bg overlay">
         <div class="video_area_inner text-center">
-            <h3>Burger <br>
-                Bachelor</h3>
-            <span>How we make delicious Burger</span>
+            <h3>Бургер <br>
+                Холостяк</h3>
+            <span>Как мы готовим вкусный бургер</span>
             <div class="video_payer">
                 <a href="https://www.youtube.com/watch?v=vLnPwxZdW4Y" class="video_btn popup-video">
                     <i class="fa fa-play"></i>
@@ -352,27 +258,25 @@
                     <div class="row">
                         <div class="col-xl-12">
                                 <div class="section_title mb-60 text-center">
-                                        <span>Testimonials</span>
-                                        <h3>Happy Customers</h3>
+                                        <span>Отзывы</span>
+                                        <h3>Счастливые клиенты</h3>
                                     </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="testmonial_active owl-carousel">
+                                <? foreach ($customers as $customer):?>
                                 <div class="single_carousel">
                                     <div class="row justify-content-center">
                                         <div class="col-lg-8">
                                             <div class="single_testmonial text-center">
-                                                <p>“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor
-                                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec
-                                                    sed
-                                                    neque.</p>
+                                                <p><?= $customer['text']?></p>
                                                 <div class="testmonial_author">
                                                     <div class="thumb">
-                                                        <img src="img/testmonial/1.png" alt="">
+                                                        <img src="<?= $customer['image']?>" alt="">
                                                     </div>
-                                                    <h4>Kristiana Chouhan</h4>
+                                                    <h4><?= $customer['name']?></h4>
                                                     <div class="stars">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -385,56 +289,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single_carousel">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8">
-                                            <div class="single_testmonial text-center">
-                                                <p>“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor
-                                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec
-                                                    sed
-                                                    neque.</p>
-                                                <div class="testmonial_author">
-                                                    <div class="thumb">
-                                                        <img src="img/testmonial/2.png" alt="">
-                                                    </div>
-                                                    <h4>Arafath Hossain</h4>
-                                                    <div class="stars">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single_carousel">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8">
-                                            <div class="single_testmonial text-center">
-                                                <p>“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor
-                                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec
-                                                    sed
-                                                    neque.</p>
-                                                <div class="testmonial_author">
-                                                    <div class="thumb">
-                                                        <img src="img/testmonial/3.png" alt="">
-                                                    </div>
-                                                    <h4>A.H Shemanto</h4>
-                                                    <div class="stars">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?endforeach;?>
                             </div>
                         </div>
                     </div>
@@ -498,7 +353,7 @@
                         <div class="col-xl-4 col-md-6 col-lg-4">
                             <div class="footer_widget text-center ">
                                 <h3 class="footer_title pos_margin">
-                                        New York
+                                        Республика Хакасия
                                 </h3>
                                 <p>5th flora, 700/D kings road, <br> 
                                         green lane New York-1782 <br>
@@ -510,7 +365,7 @@
                         <div class="col-xl-4 col-md-6 col-lg-4">
                             <div class="footer_widget text-center ">
                                 <h3 class="footer_title pos_margin">
-                                    California
+                                    Абакан
                                 </h3>
                                 <p>5th flora, 700/D kings road, <br> 
                                         green lane New York-1782 <br>
@@ -522,13 +377,13 @@
                         <div class="col-xl-4 col-md-12 col-lg-4">
                                 <div class="footer_widget">
                                         <h3 class="footer_title">
-                                                Stay Connected
+                                            Оставайся на связи
                                         </h3>
                                         <form action="#" class="newsletter_form">
                                             <input type="text" placeholder="Enter your mail">
                                             <button type="submit">Sign Up</button>
                                         </form>
-                                        <p class="newsletter_text">Stay connect with us to get exclusive offer!</p>
+                                        <p class="newsletter_text">Оставайтесь на связи с нами, чтобы получить эксклюзивное предложение!</p>
                                     </div>
                         </div>
                     </div>

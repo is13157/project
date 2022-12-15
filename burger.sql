@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 15 2022 г., 07:41
+-- Время создания: Дек 15 2022 г., 10:21
 -- Версия сервера: 5.6.51
 -- Версия PHP: 8.0.18
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- База данных: `burger`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `background`
+--
+
+CREATE TABLE `background` (
+  `id` int(11) NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `background`
+--
+
+INSERT INTO `background` (`id`, `image`) VALUES
+(1, './img/banner/banner.png'),
+(2, './img/banner/banner2.png');
 
 -- --------------------------------------------------------
 
@@ -43,6 +62,28 @@ INSERT INTO `contact` (`id`, `text`, `name`, `email`, `subject`) VALUES
 (1, 'erteterswterttewtsrtysrtrtyrtyrtyretyrey', 'tetewtwetewrter', 'erdftsert@mail.ru', 'You have a message from your Bitmap Photography.'),
 (2, 'rtaertehuiweuigsaifhweufhsufhwdufhzsufhwadufh', 'oahsgyuvsuahetu', 'kjhaseweay@yandex.com', 'You have a message from your Bitmap Photography.'),
 (3, 'врпаорвпарвыпаропываорыпраопвроапыопаыв', 'вовка', 'vovka@gmail.com', 'hgfjhgfkdjhgkjfhgdkjfhgjd');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `happy_customers`
+--
+
+CREATE TABLE `happy_customers` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `happy_customers`
+--
+
+INSERT INTO `happy_customers` (`id`, `name`, `text`, `image`) VALUES
+(1, 'Kristiana Chouhan', '“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.', '.\\img\\testmonial\\1.png'),
+(2, 'Arafath Hossain', '“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.', '.\\img\\testmonial\\2.png'),
+(3, 'A.H Shemanto', '“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.', '.\\img\\testmonial\\3.png');
 
 -- --------------------------------------------------------
 
@@ -79,9 +120,21 @@ INSERT INTO `menu` (`id`, `name`, `discription`, `price`, `image`) VALUES
 --
 
 --
+-- Индексы таблицы `background`
+--
+ALTER TABLE `background`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `contact`
 --
 ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `happy_customers`
+--
+ALTER TABLE `happy_customers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -95,9 +148,21 @@ ALTER TABLE `menu`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `background`
+--
+ALTER TABLE `background`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT для таблицы `contact`
 --
 ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `happy_customers`
+--
+ALTER TABLE `happy_customers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
