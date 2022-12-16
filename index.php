@@ -1,6 +1,6 @@
 <?php
 $db = require 'db.php';
-$items=$db->query("SELECT name, discription, price, image, link FROM menu LIMIT 8")->fetchAll(PDO::FETCH_ASSOC);
+$items=$db->query("SELECT name, description, price, image, link FROM menu LIMIT 8")->fetchAll(PDO::FETCH_ASSOC);
 $customers=$db->query("SELECT name, text, image FROM happy_customers")->fetchAll(PDO::FETCH_ASSOC);
 $backgrounds=$db->query("SELECT image FROM background")->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -158,7 +158,7 @@ $backgrounds=$db->query("SELECT image FROM background")->fetchAll(PDO::FETCH_ASS
                             </div>
                             <div class="info">
                                 <a href="<?= $item['link']?>"><h3><?= $item['name']?></h3></a>
-                                <p><?= $item['discription']?></p>
+                                <p><?= $item['description']?></p>
                                 <span><?= $item['price']?></span>
                             </div>
                         </div>
