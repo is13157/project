@@ -1659,6 +1659,11 @@ h3 {
   width: 100%;
 }
 
+.img_burger1{
+  width: 100%;
+  height: 100%;
+}
+
 /* line 51, ../../Arafath/CL/December/229. Restaurant (Burger)/HTML/scss/_about.scss */
 .about_area .about_thumb2 .img_2 {
   margin-top: 0px;
