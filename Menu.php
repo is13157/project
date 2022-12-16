@@ -1,6 +1,7 @@
 <?php
 $db = require 'db.php';
 $items=$db->query("SELECT name, discription, price, image FROM menu")->fetchAll(PDO::FETCH_ASSOC);
+$customers=$db->query("SELECT name, text, image FROM happy_customers")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -197,81 +198,30 @@ $items=$db->query("SELECT name, discription, price, image FROM menu")->fetchAll(
             <div class="row">
                 <div class="col-xl-12">
                     <div class="testmonial_active owl-carousel">
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <p>“Пожертвуйте Кони-Айленду в результате матраса. Хранитель портрета
-                                            внимательно. Трудно понять боль от сапфирового ультразвука
-                                            но
-                                            и не.</p>
-                                        <div class="testmonial_author">
-                                            <div class="thumb">
-                                                <img src="img/testmonial/1.png" alt="">
-                                            </div>
-                                            <h4>Kristiana Chouhan</h4>
-                                            <div class="stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <p>“Пожертвуйте Кони-Айленду в результате матраса. Хранитель портрета
-                                            внимательно. Трудно понять боль от сапфирового ультразвука
-                                            но
-                                            и не.</p>
-                                        <div class="testmonial_author">
-                                            <div class="thumb">
-                                                <img src="img/testmonial/2.png" alt="">
-                                            </div>
-                                            <h4>Arafath Hossain</h4>
-                                            <div class="stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half"></i>
+                        <? foreach ($customers as $customer):?>
+                            <div class="single_carousel">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8">
+                                        <div class="single_testmonial text-center">
+                                            <p><?= $customer['text']?></p>
+                                            <div class="testmonial_author">
+                                                <div class="thumb">
+                                                    <img src="<?= $customer['image']?>" alt="">
+                                                </div>
+                                                <h4><?= $customer['name']?></h4>
+                                                <div class="stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <p>“Пожертвуйте Кони-Айленду в результате матраса. Хранитель портрета
-                                            внимательно. Трудно понять боль от сапфирового ультразвука
-                                            но
-                                            и не.</p>
-                                        <div class="testmonial_author">
-                                            <div class="thumb">
-                                                <img src="img/testmonial/3.png" alt="">
-                                            </div>
-                                            <h4>A.H Shemanto</h4>
-                                            <div class="stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?endforeach;?>
                     </div>
                 </div>
             </div>
