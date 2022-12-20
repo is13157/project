@@ -1,5 +1,5 @@
 <?php
-    $db = require 'db.php';
+    $db = require './base/db.php';
 
     $from = $_REQUEST['email'];
     $name = $_REQUEST['name'];

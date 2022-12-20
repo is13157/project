@@ -1,6 +1,6 @@
 <?php
-$db = require 'db.php';
-$items=$db->query("SELECT name, discription, price, image FROM menu")->fetchAll(PDO::FETCH_ASSOC);
+$db = require './base/db.php';
+$items=$db->query("SELECT name, description, price, image FROM menu")->fetchAll(PDO::FETCH_ASSOC);
 $customers=$db->query("SELECT name, text, image FROM happy_customers")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
@@ -139,7 +139,7 @@ $customers=$db->query("SELECT name, text, image FROM happy_customers")->fetchAll
                         </div>
                         <div class="info">
                             <h3><?= $item['name']?></h3>
-                            <p><?= $item['discription']?></p>
+                            <p><?= $item['description']?></p>
                             <span><?= $item['price']?></span>
                         </div>
                     </div>

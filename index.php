@@ -1,5 +1,5 @@
 <?php
-$db = require 'db.php';
+$db = require './base/db.php';
 $items=$db->query("SELECT name, description, price, image, link FROM menu LIMIT 8")->fetchAll(PDO::FETCH_ASSOC);
 $customers=$db->query("SELECT name, text, image FROM happy_customers")->fetchAll(PDO::FETCH_ASSOC);
 $backgrounds=$db->query("SELECT image FROM background")->fetchAll(PDO::FETCH_ASSOC);
@@ -124,11 +124,11 @@ $backgrounds=$db->query("SELECT image FROM background")->fetchAll(PDO::FETCH_ASS
                         <div class="col-xl-9 col-md-9 col-md-12">
                             <div class="slider_text text-center">
                                 <div class="deal_text">
-                                    <span>Big Deal</span>
+                                    <span>Большая сделка</span>
                                 </div>
-                                <h3>Burger <br>
-                                    Bachelor</h3>
-                                <h4>Maxican</h4>
+                                <h3>Бургер <br>
+                                    Холостяк</h3>
+                                <h4>Мексиксанский</h4>
                             </div>
                         </div>
                     </div>
@@ -355,22 +355,20 @@ $backgrounds=$db->query("SELECT image FROM background")->fetchAll(PDO::FETCH_ASS
                                 <h3 class="footer_title pos_margin">
                                         Республика Хакасия
                                 </h3>
-                                <p>5th flora, 700/D kings road, <br> 
-                                        green lane New York-1782 <br>
-                                        <a href="#">info@burger.com</a></p>
-                                <a class="number" href="#">+10 378 483 6782</a>
+                                <p>Abakan, район GETTO<br>
+                                        <a href="#">burger1985@gmail.com</a></p>
+                                <a class="number" href="#">+7(999)-999-90-09</a>
     
                             </div>
                         </div>
                         <div class="col-xl-4 col-md-6 col-lg-4">
                             <div class="footer_widget text-center ">
                                 <h3 class="footer_title pos_margin">
-                                    Абакан
+                                    Белый Яр
                                 </h3>
-                                <p>5th flora, 700/D kings road, <br> 
-                                        green lane New York-1782 <br>
-                                        <a href="#">info@burger.com</a></p>
-                                <a class="number" href="#">+10 378 483 6782</a>
+                                <p>The most criminal street <br>
+                                        <a href="#">is13157@mail.ru</a></p>
+                                <a class="number" href="#">+7(909)-090-09-90</a>
     
                             </div>
                         </div>
@@ -380,8 +378,8 @@ $backgrounds=$db->query("SELECT image FROM background")->fetchAll(PDO::FETCH_ASS
                                             Оставайся на связи
                                         </h3>
                                         <form action="#" class="newsletter_form">
-                                            <input type="text" placeholder="Enter your mail">
-                                            <button type="submit">Sign Up</button>
+                                            <input type="text" placeholder="Введите свою почту">
+                                            <button type="submit">Зарегистрироваться</button>
                                         </form>
                                         <p class="newsletter_text">Оставайтесь на связи с нами, чтобы получить эксклюзивное предложение!</p>
                                     </div>
@@ -424,7 +422,7 @@ $backgrounds=$db->query("SELECT image FROM background")->fetchAll(PDO::FETCH_ASS
                         <div class="col-xl-12">
                             <p class="copy_right text-center">
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Все права защищены | Этот шаблон сделан <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </p>
                         </div>

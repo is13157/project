@@ -1,5 +1,5 @@
 <?php
-$db = require 'db.php';
+$db = require './base/db.php';
 $items=$db->query("SELECT * FROM menu")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
@@ -147,7 +147,7 @@ $items=$db->query("SELECT * FROM menu")->fetchAll(PDO::FETCH_ASSOC);
                         <? endforeach;?>
                         </tbody>
                     </table>
-                    <a href="create.php">Добавить</a>
+                    <a class="button" href="form_create.php">Добавить</a>
                 </div>
             </div>
         </div>

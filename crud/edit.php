@@ -1,5 +1,5 @@
 <?php
-$db= require 'db.php';
+$db= require './base/db.php';
 $id=$_GET['id'];
 $name=$_GET['name'];
 $Description=$_GET['description'];

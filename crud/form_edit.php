@@ -1,6 +1,6 @@
 <?php
 $id=$_GET['id'];
-$db= require 'db.php';
+$db= require './base/db.php';
 $item =$db ->query("SELECT  * FROM menu WHERE  id={$id}")->fetch(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>

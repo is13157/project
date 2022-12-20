@@ -1,9 +1,14 @@
+<?php
+$db = require './base/db.php';
+$id=$_GET['id'];
+$item=$db->query("SELECT name, description, image FROM menu WHERE id={$id}")->fetch(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Мясные бургеры</title>
+  <title><?=$item['name']?></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -109,7 +114,7 @@
 
 <!-- bradcam_area_start -->
 <div class="bradcam_area breadcam_bg">
-  <h3>Meat burgers</h3>
+  <h3><?=$item['name']?></h3>
 </div>
 <!-- bradcam_area_end -->
 
@@ -118,15 +123,15 @@
     <div class="row align-items-center">
       <div class="col-xl-6 col-lg-6 col-md-6">
         <div class="about_thumb2">
-          <img class="img_burger1" src="img/burger/1.png" alt="">
+          <img class="img_burger1" src="<?=$item['image']?>" alt="">
         </div>
       </div>
       <div class="col-xl-5 col-lg-5 offset-lg-1 col-md-6">
         <div class="about_info">
           <div class="section_title mb-20px">
-            <h3>Мясной бургер</h3>
+            <h3><?=$item['name']?></h3>
           </div>
-          <p>Вкус этого бургера - словно музыка для твоих ушей! От сочетания вкусов не устоял бы сам Великий классик… В составе: фирменная говяжья котлета, бекон, Моцарелла, салат Айсберг,и соус МЯСОROOB.Отличный способ сделать ваш бизнес надежным и актуальным. Здесь должен был быть текст, но я не знаю что написать, напишу текст песни Father (Sabaton). A long ago in eastern Prussia; Young men with great ambitions rise; So who can tell me who can say for sure; Which one will win the Nobel Prize?</p>
+          <p><?=$item['description']?></p>
         </div>
       </div>
     </div>

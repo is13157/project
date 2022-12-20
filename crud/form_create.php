@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="Form_create.php" method="get">
+<form action="create.php" method="get">
     <input type="text" name="name"><br><br>
     <input type="text" name="description"><br><br>
     <input type="text" name="price"><br><br>
